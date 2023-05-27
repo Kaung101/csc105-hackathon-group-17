@@ -48,6 +48,10 @@
     background-color: rgba(33, 150, 243, 0.8); 
     color: #ffffff; /* Replace with your desired text color */
   }
+
+  .logo-button:hover {
+    cursor: pointer !important;
+  }
   
   body {
     display: block !important; 
