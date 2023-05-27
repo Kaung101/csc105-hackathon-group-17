@@ -1,5 +1,11 @@
 import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import '../style/RegisterHelper.css';
+
+import {useMutation} from 'react-query';
+
+
+
 function RegisterHelper() {
 //check for username, pwd, email and phno
   const [username, setName] = useState('');
@@ -55,15 +61,20 @@ const labelStyle = {
     fontFamily:'Reem kufi, sans-serif'
   }
 const buttonRegisterStyle = {
-  color:'white',
-  float:'left',
-  cursor:'pointer'
+  padding: '10px 60px',
+  margin: '0 auto',
+  // color:'white',
+  // float:'left',
+  // cursor:'pointer',
+  
 }
+
 const buttonCancelStyle = {
-    color:'white',
-    float:'right',
-    cursor:'pointer'
+  padding: '10px 60px',
+  margin: '0 auto',
+  
   }
+
 const parentBox = {
   border:'1px solid black',
   borderRadius:'5px',
@@ -137,15 +148,15 @@ const dialogBtn = {
                         <Typography sx={{color:'#BE1D1B', fontSize:'11px'}}>Click 'Register' to agree Terms of Service and acknowledge that this website's Privacy Policy applies to you.</Typography>
                     </Grid>
                     {/* button */}
-                    <Grid item xs={6} md={6} style={buttonRegisterStyle}>
-                        <Button onClick={handleSubmit} size="small" variant="contained" style={buttonRegisterStyle}  >
+                    <Grid item xs={6} md={6} style={buttonRegisterStyle} className='btn-btn'>
+                        <Button onClick={handleSubmit} size="small" variant="contained" style={buttonRegisterStyle}  className='login-btn' >
                             <Typography style={buttonCancelStyle} className='btn' variant="subtitle2" component="label" >
                                 Register
                             </Typography>
                         </Button>
                     </Grid>
-                    <Grid item xs={6} md={6} style={buttonCancelStyle}>
-                        <Button onClick={handleCancel} size="small" variant="contained" style={buttonCancelStyle}>
+                    <Grid item xs={6} md={6} style={buttonCancelStyle} className='btn-btn'>
+                        <Button onClick={handleCancel} size="small" variant="contained" style={buttonCancelStyle} className='login-btn'>
                             <Typography style={buttonCancelStyle} className='btn' variant="subtitle2" component="label">
                                 Cancel
                             </Typography>                
