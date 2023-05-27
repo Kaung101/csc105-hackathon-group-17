@@ -6,14 +6,16 @@ import RegisterHelper from './pages/RegisterHelper';
 import Navbar from './Components/Navbar';
 import Categories from './Pages/Categories';
 import Footer from './Components/Footer';
+import HelperInfo from './pages/HelperInfo';
 
 function App() {
   return (
     <>
-    <Navbar />
+    {/* <Navbar />
     <Categories />
-    <Footer />
-    <RegisterHelper />
+    <Footer /> 
+    <RegisterHelper />*/}
+    <HelperInfo />
 
     </>
   );
