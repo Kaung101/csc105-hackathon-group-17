@@ -1,24 +1,22 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 
-function Navbar() {
+const Navbar = () => {
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ backgroundImage: 'url(/footbg.jpg)', backgroundSize: 'cover' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
+            <img src="./public/logo-no-background.png" alt="Logo" style={{ height: '30px' }} />
+          </Box>
           <Typography
             variant="h6"
             noWrap
@@ -47,24 +45,13 @@ function Navbar() {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            ></Menu>
           </Box>
+
           <Box sx={{ flexGrow: 1 }} />
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}>
+            <img src="./public/logo-no-background.png" alt="Logo" style={{ height: '25px' }} />
+          </Box>
           <Typography
             variant="h5"
             noWrap
@@ -88,24 +75,11 @@ function Navbar() {
             <Tooltip title="Open settings">
               <Avatar alt="UserProfile" src="/static/images/avatar/2.jpg" />
             </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-            ></Menu>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
+};
 
 export default Navbar;
