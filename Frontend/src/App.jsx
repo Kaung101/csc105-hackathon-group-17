@@ -5,13 +5,15 @@ import './App.css';
 import RegisterHelper from './pages/RegisterHelper';
 import Navbar from './Components/Navbar';
 import Categories from './Pages/Categories';
+import Footer from './Components/Footer';
 
 function App() {
   return (
     <>
     <Navbar />
     <Categories />
-    {/* // <RegisterHelper /> */}
+    <Footer />
+    <RegisterHelper />
 
     </>
   );

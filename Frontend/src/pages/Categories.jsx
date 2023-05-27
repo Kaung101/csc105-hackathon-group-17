@@ -9,39 +9,41 @@ const itemList = [
 
 export default function Categories() {
   return (
-    <Grid container spacing={2} alignItems="center" justifyContent="center" margin="10px">
-      <Grid item xs={12}>
-        <div className='wrapper' style={{ textAlign: 'center' }}>
-          <h1>What do you need_________?</h1>
-        </div>
+    <div style={{ overflowX: 'hidden' }}>
+      <Grid container spacing={2} alignItems="center" justifyContent="center" margin="10px">
+        <Grid item xs={12}>
+          <div className='wrapper' style={{ textAlign: 'center' }}>
+            <h1>What do you need_________?</h1>
+          </div>
+        </Grid>
+        <Grid className="cards" item container spacing={2} justifyContent="center">
+          {itemList.map((item, index) => (
+            <Grid item xs={12} sm={6} md={6} lg={6} key={item.id}>
+              <Card sx={{ border: '1px solid lightgray', borderRadius: '8px', display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <CardMedia
+                  component="img"
+                  height="200px"
+                  width="150px"
+                  image={item.imageUrl}
+                  alt={item.name}
+                  sx={{
+                    objectFit: 'contain',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                />
+                <CardContent sx={{ textAlign: 'center', flexGrow: 1 }}>
+                  <Typography variant="h6" sx={{ margin: 'auto', fontWeight: 'bold', fontSize: '1.2rem' }}>
+                    {item.name}
+                  </Typography>
+                </CardContent>
+                {index !== itemList.length - 1 && <Divider />}
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
       </Grid>
-      <Grid className="cards" item container spacing={2} justifyContent="center">
-        {itemList.map((item, index) => (
-          <Grid item xs={12} sm={6} md={6} lg={6} key={item.id}>
-            <Card sx={{ border: '1px solid lightgray', borderRadius: '8px', display: 'flex', flexDirection: 'column', height: '100%' }}>
-              <CardMedia
-                component="img"
-                height="200px"
-                width="150px"
-                image={item.imageUrl}
-                alt={item.name}
-                sx={{
-                  objectFit: 'contain',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              />
-              <CardContent sx={{ textAlign: 'center', flexGrow: 1 }}>
-                <Typography variant="h6" sx={{ margin: 'auto', fontWeight: 'bold', fontSize: '1.2rem' }}>
-                  {item.name}
-                </Typography>
-              </CardContent>
-              {index !== itemList.length - 1 && <Divider />}
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Grid>
+    </div>
   );
 }
