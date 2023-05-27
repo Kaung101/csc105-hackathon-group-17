@@ -1,9 +1,6 @@
 import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import '../style/RegisterHelper.css';
-import {useMutation} from 'react-query';
-import Axios from '../utils/Axios';
-
 
 
 function RegisterHelper() {
@@ -17,18 +14,6 @@ function RegisterHelper() {
   const [alert, setAlert] = useState('none');
   const [com, setCom] = useState('none');
   const [emailAlert, setEmailAlert] = useState('none');
-
-  const registerMutation = useMutation(
-    () => {
-      const payload = { username, email, pwd, phNo, address };
-
-      Axios.post('register', payload);
-    },
-    {
-      onSuccess: (data) => console.log(data),
-      onError: (error) => console.error(error),
-    }
-  );
 
     //Handle submit
     const handleSubmit = (e) => {
@@ -74,13 +59,13 @@ const labelStyle = {
     fontFamily:'Reem kufi, sans-serif'
   }
 const buttonRegisterStyle = {
-  padding: '10px 60px',
+  padding: '2px 25px',
   margin: '0 auto',
   
 }
 
 const buttonCancelStyle = {
-  padding: '10px 60px',
+  padding: '2px 25px',
   margin: '0 auto',
   
   }
@@ -103,7 +88,7 @@ const dialogBtn = {
     color:'#BE1D1B',
   }
   return (
-    <Box className="register-container">
+    <Box className="register-container" >
         {/* //outer Grid */}
     <Grid  
       container
@@ -151,7 +136,7 @@ const dialogBtn = {
                         <Typography variant='subtitle1' component='label' htmlFor='rpassword' sx={labelStyle} type="password">
                             Password
                         </Typography>
-                        <TextField value={pwd} onChange={(e) => {setPwd(e.target.value);}} required fullWidth id="rpassword" variant="outlined"></TextField>
+                        <TextField value={pwd} onChange={(e) => {setPwd(e.target.value);}} required fullWidth id="rpassword" variant="outlined" ></TextField>
                         <Typography display={alert} style={alertStyle}>Password should be 8 characters or more and should have at least one digit,A-Z and a-z.</Typography>
                     </Grid>
                     <Grid item xs={12}>
