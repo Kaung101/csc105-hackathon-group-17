@@ -45,13 +45,14 @@ const parentBox = {
   borderRadius:'5px',
 }
   return (
-    <Box className="register-container" 
+    <Box className="login-container" 
     sx={{ marginLeft:40}}
     >
         {/* //outer Grid */}
     <Grid  
       container
       spacing={3}
+      className='grid-background' 
       justifyContent="center"
       alignItems="center"
       style={{ minHeight: '100vh'}}
