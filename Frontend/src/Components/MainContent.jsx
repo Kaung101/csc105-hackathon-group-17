@@ -3,13 +3,22 @@ import Logo from '../assets/logo.png';
 import '../style/MainContent.css';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router';
+//kaungkaung edit
+import { useCookies } from 'react-cookie';
+import { useEffect } from 'react';
 
 export default function MainContent() {
     const navigate = useNavigate();
-
+    //set user Type
+    const [cookies, setCookies] = useCookies(['userType'] ); 
     const handleSeekerClick = e => {
-	navigate('categories');
+  //set cookies
+  setCookies('userType', 'seeker');
+  navigate('seeker');
     }
+    const handleHelperClick = e => {
+      setCookies('userType', 'helper');
+    };
 
     return (
       <div className="app-container">
@@ -20,7 +29,8 @@ export default function MainContent() {
             <Typography variant="h5" align="center">
             Are you a   _____?
             </Typography> <br />
-          <Button variant="contained" color="primary" className="logo-button" >
+            {/* kaungkaung edit onclick button */}
+          <Button variant="contained" color="primary" className="logo-button" onClick={handleHelperClick}>
             Helper
           </Button>
           <Button variant="contained" color="primary" className="logo-button" onClick={handleSeekerClick}>

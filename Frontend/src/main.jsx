@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
 import Categories from './pages/Categories';
-
+import Seeker from './pages/Seeker';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -15,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: 'categories',
     element: <Categories />,
+  },
+  {
+    path: 'seeker',
+    element: <Seeker />,
   },
 ]);
 

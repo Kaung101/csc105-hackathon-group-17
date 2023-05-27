@@ -1,38 +1,49 @@
-import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Divider, Grid, Typography } from '@mui/material';
 
 const itemList = [
   { id: 1, name: 'House', imageUrl: 'house.jpg' },
   { id: 2, name: 'Medicine', imageUrl: 'medicine.jpg' },
   { id: 3, name: 'Food', imageUrl: 'food.jpg' },
-  { id: 4, name: 'Cloth', imageUrl: 'cloth.jpg' },
+  { id: 4, name: 'Clothes', imageUrl: 'cloth.jpg' },
 ];
 
 export default function Categories() {
-
   return (
-    <Grid container spacing={2} direction="row" alignItems="center">
-      {itemList.map((item) => (
-        <Grid item xs={12} sm={6} lg={3} key={item.id}>
-	      <Card>
-            <Grid container direction="column" spacing={0}>
-              <Grid item>
+    <div style={{ overflowX: 'hidden' }}>
+      <Grid container spacing={2} alignItems="center" justifyContent="center" margin="10px">
+        <Grid item xs={12}>
+          <div className='wrapper' style={{ textAlign: 'center' }}>
+            <h1>What do you need_________?</h1>
+          </div>
+        </Grid>
+        <Grid className="cards" item container spacing={2} justifyContent="center">
+          {itemList.map((item, index) => (
+            <Grid item xs={12} sm={6} md={6} lg={6} key={item.id}>
+              <Card sx={{ border: '1px solid lightgray', borderRadius: '8px', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <CardMedia
                   component="img"
-                  height={300}
+                  height="200px"
+                  width="150px"
                   image={item.imageUrl}
                   alt={item.name}
+                  sx={{
+                    objectFit: 'contain',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
                 />
-              </Grid>
-              <Grid item>
-                <CardContent>
-                  <Typography variant="h6">{item.name}</Typography>
-                  {/* Add more text content as needed */}
+                <CardContent sx={{ textAlign: 'center', flexGrow: 1 }}>
+                  <Typography variant="h6" sx={{ margin: 'auto', fontWeight: 'bold', fontSize: '1.2rem' }}>
+                    {item.name}
+                  </Typography>
                 </CardContent>
-              </Grid>
+                {index !== itemList.length - 1 && <Divider />}
+              </Card>
             </Grid>
-          </Card>
+          ))}
         </Grid>
-      ))}
-    </Grid>
+      </Grid>
+    </div>
   );
 }
