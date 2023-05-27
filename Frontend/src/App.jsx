@@ -1,17 +1,11 @@
-import Body from './components/Body';
-import IntroScreen from './components/Topbar';
 
-
+import React from 'react';
+import MainContent from './Components/MainContent';
+import './App.css';
 
 function App() {
-
-
   return (
-    <>
-      <IntroScreen />
-      <Body />
-
-    </>
+    <MainContent />
   );
 }
 
