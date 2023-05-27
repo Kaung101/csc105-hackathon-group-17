@@ -1,10 +1,17 @@
-
 import Typography from '@mui/material/Typography';
 import Logo from '../assets/logo.png';
 import '../style/MainContent.css';
 import { Button } from '@mui/material';
+import { useNavigate } from 'react-router';
 
-function MainContent() {
+export default function MainContent() {
+    const navigate = useNavigate();
+
+    const handleSeekerClick = e => {
+	    debugger
+	navigate('categories');
+    }
+
     return (
       <div className="app-container">
         <div className="app-background-image"/>
@@ -17,12 +24,10 @@ function MainContent() {
           <Button variant="contained" color="primary" className="logo-button" >
             Helper
           </Button>
-          <Button variant="contained" color="primary" className="logo-button">
+          <Button variant="contained" color="primary" className="logo-button" onClick={() => navigate('categories')}>
             Seeker
           </Button>
         </div>
       </div>
     );
   }
-  
-  export default MainContent;
