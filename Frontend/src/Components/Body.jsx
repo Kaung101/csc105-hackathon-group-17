@@ -2,12 +2,16 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { Box, Card, CardMedia } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const IntroScreen = () => {
+  const navigate = useNavigate();
+
   const handleSeekerClick = () => {
     // Handle seeker button click
     console.log('Seeker button clicked');
     // Add  logic here for what should happen when the seeker button is clicked
+    navigate('categories')
   };
 
   const handleHelperClick = () => {
