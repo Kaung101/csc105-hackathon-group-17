@@ -1,16 +1,11 @@
-import MainContent from './Components/MainContent';
-import Box from '@mui/material/Box';
-import RegisterHelper from './pages/RegisterHelper';
 
+import React from 'react';
+import MainContent from './Components/MainContent';
+import './App.css';
 
 function App() {
-
-
   return (
-    <Box>
-      {/* <MainContent /> */}
-      <RegisterHelper />
-    </Box>
+    <MainContent />
   );
 }
 

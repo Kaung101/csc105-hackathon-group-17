@@ -53,7 +53,7 @@ function RegisterHelper() {
 }
 //handleCancel
 const handleCancel = () => {
-    history.push("/");
+    console.log("cancel");
   }
 // styling
 const labelStyle = {
@@ -97,7 +97,7 @@ const dialogBtn = {
         {/* //outer Grid */}
     <Grid  
       container
-      spacing={2}
+      spacing={1}
       justifyContent="center"
       alignItems="center"
       style={{ minHeight: '100vh'}}
