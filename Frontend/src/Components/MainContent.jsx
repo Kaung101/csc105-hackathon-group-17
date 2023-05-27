@@ -8,7 +8,6 @@ export default function MainContent() {
     const navigate = useNavigate();
 
     const handleSeekerClick = e => {
-	    debugger
 	navigate('categories');
     }
 
@@ -24,7 +23,7 @@ export default function MainContent() {
           <Button variant="contained" color="primary" className="logo-button" >
             Helper
           </Button>
-          <Button variant="contained" color="primary" className="logo-button" onClick={() => navigate('categories')}>
+          <Button variant="contained" color="primary" className="logo-button" onClick={handleSeekerClick}>
             Seeker
           </Button>
         </div>
