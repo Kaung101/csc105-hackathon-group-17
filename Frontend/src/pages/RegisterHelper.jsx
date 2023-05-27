@@ -47,7 +47,7 @@ function RegisterHelper() {
 }
 //handleCancel
 const handleCancel = () => {
-    history.push("/");
+    console.log("cancel");
   }
 // styling
 const labelStyle = {
