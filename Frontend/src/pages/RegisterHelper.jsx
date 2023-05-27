@@ -1,8 +1,8 @@
 import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import '../style/RegisterHelper.css';
-
 import {useMutation} from 'react-query';
+import Axios from '../utils/Axios';
 
 
 
@@ -17,6 +17,19 @@ function RegisterHelper() {
   const [alert, setAlert] = useState('none');
   const [com, setCom] = useState('none');
   const [emailAlert, setEmailAlert] = useState('none');
+
+  const registerMutation = useMutation(
+    () => {
+      const payload = { username, email, pwd, phNo, address };
+
+      Axios.post('register', payload);
+    },
+    {
+      onSuccess: (data) => console.log(data),
+      onError: (error) => console.error(error),
+    }
+  );
+
     //Handle submit
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -63,9 +76,6 @@ const labelStyle = {
 const buttonRegisterStyle = {
   padding: '10px 60px',
   margin: '0 auto',
-  // color:'white',
-  // float:'left',
-  // cursor:'pointer',
   
 }
 

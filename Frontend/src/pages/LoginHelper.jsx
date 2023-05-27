@@ -1,5 +1,6 @@
 import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
 function LoginHelper() {
 //check for username, pwd, email and phno
   const [username, setName] = useState('');
