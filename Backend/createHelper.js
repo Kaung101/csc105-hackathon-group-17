@@ -2,7 +2,7 @@ const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
 module.exports = async (req, res) => {
 	const username = req.body.username;
-    const email = req.body.username;
+    const email = req.body.email;
     const ph_number = req.body.ph_number;
     const address = req.body.address;
 	const password = req.body.password;

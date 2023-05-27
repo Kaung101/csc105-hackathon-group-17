@@ -1,9 +1,12 @@
 import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../style/RegisterHelper.css';
-
+import GlobalContext from '../contexts/GlobalContext';
+import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterHelper() {
+    const navigate = useNavigate();
 //check for username, pwd, email and phno
   const [username, setName] = useState('');
   const [pwd, setPwd] = useState('');
@@ -14,6 +17,38 @@ function RegisterHelper() {
   const [alert, setAlert] = useState('none');
   const [com, setCom] = useState('none');
   const [emailAlert, setEmailAlert] = useState('none');
+    //
+    const {setStatus}=useContext(GlobalContext);
+    const registerMutation=useMutation(()=>
+Axios.post('/register',{
+  username,
+  pwd,
+  phNo,
+  email,
+  address
+}),{
+  onSuccess :(data)=>{
+    if(data.data.success){
+      setStatus({
+        msg:data.data.msg,
+        severity: 'success',
+      });
+    }
+  },
+  onError:(error)=>{
+    setPwd('');
+      if (error instanceof AxiosError)
+        if (error.response)
+          return setStatus({
+            msg: error.response.data.error,
+            severity: 'error',
+          });
+          return setStatus({
+            msg: error.message,
+            severity: 'error',
+          });
+  },
+});
 
     //Handle submit
     const handleSubmit = (e) => {
@@ -36,6 +71,9 @@ function RegisterHelper() {
             }
             else{
                 //submit the info & redirect to login page
+                registerMutation.mutate();
+                navigate('/login');
+
                 
             }
         }

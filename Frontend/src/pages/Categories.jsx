@@ -1,5 +1,5 @@
 import { Card, CardContent, CardMedia, Divider, Grid, Typography } from '@mui/material';
-
+import '../style/Categories.css'
 const itemList = [
   { id: 1, name: 'House', imageUrl: 'house.jpg' },
   { id: 2, name: 'Medicine', imageUrl: 'medicine.jpg' },
