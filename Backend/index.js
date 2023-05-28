@@ -33,8 +33,9 @@ app.post("/register", require("./createHelper"));
 app.post("/createHome", require("./createHome"));
 app.get("/get", require("./get"));
 //app.get("/todo/all", require("./endpoint_get_all_todos"));
-app.get("/getProfile", require("./getProfile"))
-app.patch("/updateProfile", require("./updateProfile"))
+app.get("/profile", require("./getProfile"))
+app.patch("/profile", require("./updateProfile"))
+app.delete("/profile", require("./deleteProfile"))
 
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);

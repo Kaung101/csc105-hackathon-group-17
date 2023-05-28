@@ -36,9 +36,13 @@ export default function Login() {
   const { data, error, mutate } = useMutation(() => {
     Axios.patch('/profile', {
       email,
-      phone_number,
+      phone_number: phNo,
       address,
     });
+  });
+
+  const { mutate: deleteProfile } = useMutation(() => {
+    Axios.delete('/profile');
   });
 
   const handleSubmit = (e) => {
@@ -47,10 +51,16 @@ export default function Login() {
     console.log("Profile Updated");
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+
+    deleteProfile();
+  }
+
   useQuery(
     'user',
     () => {
-      Axios.get(`/profile`);
+      Axios.get('profile');
     },
     {
       onSuccess: (data) => {
@@ -184,7 +194,7 @@ export default function Login() {
                 </Button>
               </Grid>
               <Grid item xs={6} md={6}>
-                <Button size="small" variant="contained">
+                <Button size="small" variant="contained" onClick={handleDelete}>
                   <Typography
                     className="btn"
                     variant="subtitle2"
