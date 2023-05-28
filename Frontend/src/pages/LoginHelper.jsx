@@ -2,10 +2,15 @@ import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogConten
 import React, { useState, useContext } from 'react';
 import { useMutation } from 'react-query';
 import Axios from '../utils/Axios.js';
+import Navbar from '../Components/Navbar.jsx';
+import Footer from '../Components/Footer.jsx';
+
 import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 function LoginHelper() {
     
 //check for username, pwd, email and phno
+const navigate = useNavigate();
   const [username, setName] = useState('');
   const [pwd, setPwd] = useState(''); //Handle submit
   const [openDialog, setOpenDialog] = useState(false);
@@ -13,7 +18,7 @@ function LoginHelper() {
   //set user Type
   const [cookies, setCookies] = useCookies(['userName'] ); 
   setCookies('userType', username);
-    
+
   const { data, error, mutate } = useMutation(() => {
     Axios.post('/login', {
       username,
@@ -29,6 +34,8 @@ function LoginHelper() {
     // const info = {username, pwd};
     //check with db
       mutate();
+      navigate('/helperInfo');
+
         }
   }
 
@@ -60,6 +67,9 @@ const parentBox = {
   borderRadius:'5px',
 }
   return (
+    <>
+    <Navbar />
+
     <Box className="login-container" 
     sx={{ marginLeft:40}}
     >
@@ -125,7 +135,10 @@ const parentBox = {
         </Dialog>
     </Grid>
     </Box>
-  )
+
+    <Footer />
+    </>
+  );
 }
 
-export default LoginHelper
+export default LoginHelper;

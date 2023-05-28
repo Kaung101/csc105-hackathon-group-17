@@ -18,7 +18,7 @@ export default function MainContent() {
     }
     const handleHelperClick = e => {
       setCookies('userType', 'helper');
-      navigate('helperInfo');
+      navigate('/register');
     };
 
     return (

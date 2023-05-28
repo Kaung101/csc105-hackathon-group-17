@@ -3,6 +3,7 @@ import '../style/Categories.css'
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import Navbar from '../Components/Navbar';
+
 const itemList = [
   { id: 1, name: 'House', imageUrl: 'house.jpg' },
   { id: 2, name: 'Medicine', imageUrl: 'medicine.jpg' },
@@ -13,9 +14,12 @@ const itemList = [
 export default function Categories() {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/helperDataInfo')
+    navigate('/homeShow')
   };
   return (
+    <>
+    <Navbar />
+    
     <div style={{ overflowX: 'hidden' }}>
       <Navbar/>
       <Grid container spacing={2} alignItems="center" justifyContent="center" margin="10px">
@@ -25,7 +29,7 @@ export default function Categories() {
           </div>
         </Grid>
         {/* on click */}
-        <Grid className="cards" item container spacing={2} justifyContent="center" onClick={(navigate('/helperDataInfo'))}>
+        <Grid className="cards" item container spacing={2} justifyContent="center" onClick={handleClick}>
           {itemList.map((item, index) => (
             <Grid item xs={12} sm={6} md={6} lg={6} key={item.id}>
               <Card sx={{ border: '1px solid lightgray', borderRadius: '8px', display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -54,5 +58,6 @@ export default function Categories() {
         </Grid>
       </Grid>
     </div>
+    </>
   );
 }

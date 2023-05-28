@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import Categories from './pages/Categories';
 import Seeker from './pages/Seeker';
-import RegisterHelper from './pages/RegisterHelper.jsx';
+import Register from './pages/Register.jsx';
 import LoginHelper from './pages/LoginHelper.jsx';
 import './index.css';
 import MainContent from './Components/MainContent.jsx';
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'register',
-    element: <RegisterHelper />,
+    element: <Register />,
   },
   {
     path: 'login',
@@ -42,12 +42,8 @@ const router = createBrowserRouter([
     element: <Housing />,
   },
   {
-    path: 'homeShow',
+    path: '/homeShow',
     element: <HomeShow />,
-  },
-  {
-    path: 'login',
-    element: <LoginHelper />,
   },
 ]);
 
