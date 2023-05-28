@@ -8,7 +8,7 @@ import {
 import { useState } from 'react';
 import '../style/Housing.css';
 import { useMutation, useQuery } from 'react-query';
-import { Axios } from 'axios';
+import Axios from '../utils/Axios.js';
 export default function Login() {
   const [profile, setProfile] = useState({
     username: '',
@@ -33,10 +33,18 @@ export default function Login() {
   }
 
 
-  const { data, error, mutate } = useMutation(() => {});
+  const { data, error, mutate } = useMutation(() => {
+    Axios.patch('/profile', {
+      email,
+      phone_number,
+      address,
+    });
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    mutate();
   };
 
   useQuery(
@@ -84,7 +92,7 @@ export default function Login() {
             </Typography>
           </Grid>
           {/* //end of upper form */}
-          <form style={parentBox} onSubmit={handleSubmit}>
+          <form style={parentBox}>
             <Grid container spacing={3} alignItems="center" p={2}>
               <Grid item xs={12}>
                 {/* username */}
@@ -165,7 +173,7 @@ export default function Login() {
               </Grid>
 
               <Grid item xs={6} md={6}>
-                <Button size="small" variant="contained">
+                <Button size="small" variant="contained" onClick={handleSubmit}>
                   <Typography
                     className="btn"
                     variant="subtitle2"
