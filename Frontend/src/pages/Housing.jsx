@@ -41,11 +41,21 @@ export default function Login() {
     });
   });
 
+  const { mutate: deleteProfile } = useMutation(() => {
+    Axios.delete('/profile');
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     mutate();
   };
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+
+    deleteProfile();
+  }
 
   useQuery(
     'user',
@@ -184,7 +194,7 @@ export default function Login() {
                 </Button>
               </Grid>
               <Grid item xs={6} md={6}>
-                <Button size="small" variant="contained">
+                <Button size="small" variant="contained" onClick={handleDelete}>
                   <Typography
                     className="btn"
                     variant="subtitle2"
