@@ -6,11 +6,12 @@ import Categories from './pages/Categories';
 import Seeker from './pages/Seeker';
 import './index.css';
 import RegisterHelper from './pages/RegisterHelper.jsx';
-
+import MainContent from './Components/MainContent.jsx';
+import HelperInfo from './pages/HelperInfo.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <MainContent />,
   },
   {
     path: 'categories',
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: 'register',
     element: <RegisterHelper />,
+  },
+  {
+    path: 'helperInfo',
+    element: <HelperInfo />,
   },
 ]);
 
