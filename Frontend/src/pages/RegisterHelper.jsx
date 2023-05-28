@@ -1,12 +1,12 @@
 import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../style/RegisterHelper.css';
-import {useMutation} from 'react-query';
-import Axios from '../utils/Axios';
-
-
+import GlobalContext from '../contexts/GlobalContext';
+import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterHelper() {
+    const navigate = useNavigate();
 //check for username, pwd, email and phno
   const [username, setName] = useState('');
   const [pwd, setPwd] = useState('');
@@ -17,18 +17,38 @@ function RegisterHelper() {
   const [alert, setAlert] = useState('none');
   const [com, setCom] = useState('none');
   const [emailAlert, setEmailAlert] = useState('none');
-
-  const registerMutation = useMutation(
-    () => {
-      const payload = { username, email, pwd, phNo, address };
-
-      Axios.post('register', payload);
-    },
-    {
-      onSuccess: (data) => console.log(data),
-      onError: (error) => console.error(error),
+    //
+    const {setStatus}=useContext(GlobalContext);
+    const registerMutation=useMutation(()=>
+Axios.post('/register',{
+  username,
+  pwd,
+  phNo,
+  email,
+  address
+}),{
+  onSuccess :(data)=>{
+    if(data.data.success){
+      setStatus({
+        msg:data.data.msg,
+        severity: 'success',
+      });
     }
-  );
+  },
+  onError:(error)=>{
+    setPwd('');
+      if (error instanceof AxiosError)
+        if (error.response)
+          return setStatus({
+            msg: error.response.data.error,
+            severity: 'error',
+          });
+          return setStatus({
+            msg: error.message,
+            severity: 'error',
+          });
+  },
+});
 
     //Handle submit
     const handleSubmit = (e) => {
@@ -51,6 +71,9 @@ function RegisterHelper() {
             }
             else{
                 //submit the info & redirect to login page
+                registerMutation.mutate();
+                navigate('/login');
+
                 
             }
         }
@@ -74,13 +97,13 @@ const labelStyle = {
     fontFamily:'Reem kufi, sans-serif'
   }
 const buttonRegisterStyle = {
-  padding: '10px 60px',
+  padding: '2px 25px',
   margin: '0 auto',
   
 }
 
 const buttonCancelStyle = {
-  padding: '10px 60px',
+  padding: '2px 25px',
   margin: '0 auto',
   
   }
@@ -103,9 +126,9 @@ const dialogBtn = {
     color:'#BE1D1B',
   }
   return (
-    <Box className="register-container">
+    <Box className="register--container" >
         {/* //outer Grid */}
-    <Grid  
+    <Grid className='grid-background'  
       container
       spacing={1}
       justifyContent="center"
@@ -151,7 +174,7 @@ const dialogBtn = {
                         <Typography variant='subtitle1' component='label' htmlFor='rpassword' sx={labelStyle} type="password">
                             Password
                         </Typography>
-                        <TextField value={pwd} onChange={(e) => {setPwd(e.target.value);}} required fullWidth id="rpassword" variant="outlined"></TextField>
+                        <TextField value={pwd} onChange={(e) => {setPwd(e.target.value);}} required fullWidth id="rpassword" variant="outlined" ></TextField>
                         <Typography display={alert} style={alertStyle}>Password should be 8 characters or more and should have at least one digit,A-Z and a-z.</Typography>
                     </Grid>
                     <Grid item xs={12}>

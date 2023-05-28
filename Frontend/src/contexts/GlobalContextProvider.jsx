@@ -3,7 +3,8 @@ import { useMemo, useState } from 'react';
 import GlobalContext from './GlobalContext';
 
 export default function GlobalContextProvider(props) {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState('');
+  const [status, setStatus] = useState('');
   // hard-coded initial state for testing
 //   const [posts, setPosts] = useState([
 //     {
@@ -22,10 +23,10 @@ export default function GlobalContextProvider(props) {
     return {
       user,
       setUser,
-      posts,
-      setPosts,
+      status,
+      setStatus,
     };
-  }, [user, posts]);
+  }, [user, status]);
 
   return (
     <GlobalContext.Provider value={globalState}>

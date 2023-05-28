@@ -3,7 +3,7 @@ body {
 }
 
 .app-container {
-    position: relative;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@ body {
     height: 100vh;;
     background-size: cover;
     /* background-position: center; */
-    z-index: -1 !important;
+    z-index: -9999 !important;
   }
   
   .app-background-image{
