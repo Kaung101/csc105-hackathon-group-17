@@ -1,5 +1,7 @@
 import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
 import React, { useState, useContext } from 'react';
+import { useMutation } from 'react-query';
+import Axios from '../utils/Axios.js';
 
 function LoginHelper() {
 //check for username, pwd, email and phno
@@ -7,13 +9,21 @@ function LoginHelper() {
   const [pwd, setPwd] = useState(''); //Handle submit
   const [openDialog, setOpenDialog] = useState(false);
 
+  const { data, error, mutate } = useMutation(() => {
+    Axios.post('login', {
+      username,
+      pwd,
+    });
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if(username == "" || pwd == "" ){
       setOpenDialog(true);
     }else{
-    const info = {username, pwd};
+    // const info = {username, pwd};
     //check with db
+      mutate();
     }
   }
 

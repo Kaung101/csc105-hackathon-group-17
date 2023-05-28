@@ -46,6 +46,10 @@ const router = createBrowserRouter([
     path: 'homeShow',
     element: <HomeShow />,
   },
+  {
+    path: 'login',
+    element: <Login />,
+  },
 ]);
 
 const queryClient = new QueryClient();
