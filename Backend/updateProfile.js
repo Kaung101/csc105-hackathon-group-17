@@ -5,7 +5,7 @@ module.exports = (req, res) => {
     const token = req.cookies.helper;
     const payload = req.body;
 
-    const isVerified = jsonwebtoken.verify(token, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUyNTAzNDMsImV4cCI6MTY4NTI1Mzk0M30.pj0g_4ZEeSB7mR62rXMTvCzHSfoxGoq_Khvl-lUOrcU")
+    const isVerified = jsonwebtoken.verify(token, "ZJGX1QL7ri6BGJWj3t")
 
     if (!isVerified) {
         res.status(401).send();
