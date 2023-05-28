@@ -2,13 +2,10 @@ import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogConten
 import React, { useState, useContext } from 'react';
 import '../style/Housing.css';
 import { useCookies } from 'react-cookie';
-<<<<<<< HEAD
 import Navbar from '../Components/Navbar.jsx';
 import Footer from '../Components/Footer.jsx';
 
-=======
 import Axios from '../utils/Axios.js';
->>>>>>> 1f992823cd88f06fe5f02fd41cc2bcc4bd734d9e
 export default function Login() {
   //when the user log in it will keep cookies
     const userId = "userId from cookies in login page";
