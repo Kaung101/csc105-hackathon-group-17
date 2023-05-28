@@ -11,10 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const navigate = useNavigate();
-  const handleClick = () => {
-    //direct to other page
-    navigate('')
-  }
+
   return (
     <AppBar position="static" style={{ backgroundImage: 'url(/footbg.jpg)', backgroundSize: 'cover' }}>
       <Container maxWidth="xl">
@@ -76,7 +73,7 @@ const Navbar = () => {
           </Typography>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip onClick={handleClick}>
+            <Tooltip onClick={() => navigate('/helperDataInfo')}>
               <Avatar alt="UserProfile" src="/static/images/avatar/2.jpg" />
             </Tooltip>
           </Box>

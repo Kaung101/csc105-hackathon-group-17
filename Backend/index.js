@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use(cors({ origin: ["http://localhost:5173","http://localhost:5174"], credentials: true }));
 
 // Register endpoints
-app.get("/login", require("./HelperLogin"));
+app.post("/login", require("./HelperLogin"));
 app.post("/register", require("./createHelper"));
 app.post("/createHome", require("./createHome"));
 app.get("/get", require("./get"));
