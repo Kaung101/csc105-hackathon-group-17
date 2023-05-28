@@ -8,6 +8,7 @@ import './index.css';
 import RegisterHelper from './pages/RegisterHelper.jsx';
 import MainContent from './Components/MainContent.jsx';
 import HelperInfo from './pages/HelperInfo.jsx';
+import Housing from './pages/Housing.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: 'helperInfo',
     element: <HelperInfo />,
+  },
+  {
+    path: 'helperDataInfo',
+    element: <Housing />,
   },
 ]);
 

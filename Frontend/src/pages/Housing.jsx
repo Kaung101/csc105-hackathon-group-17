@@ -1,22 +1,24 @@
 import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
 import React, { useState, useContext } from 'react';
 import '../style/Housing.css';
-
+import { useCookies } from 'react-cookie';
 export default function Login() {
-  const [address, setAddress] = useState('');
-  const [space, setSpace] = useState('');
+  //when the user log in it will keep cookies
+    const userId = "userId from cookies in login page";
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [contact, setContact] = useState('');
 
-  const handleAddressChange = (e) => setAddress(e.currentTarget.value);
+  // const handleAddressChange = (e) => setAddress(e.currentTarget.value);
 
-  const handleSpaceChange = (e) => setSpace(e.currentTarget.value);
+  // const handleSpaceChange = (e) => setSpace(e.currentTarget.value);
 
-  const handleContactChange = (e) => setContact(e.currentTarget.value);
+  // const handleContactChange = (e) => setContact(e.currentTarget.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    loginMutation.mutate();
   };
 
   //Styling 
@@ -47,36 +49,44 @@ export default function Login() {
         <Grid item xs={10} sm={5} md={6}>
             {/* //start of upper form */}
             <Grid item mb={2} >
-                <Typography variant="h6" component="label" >Housing</Typography>
+                <Typography variant="h6" component="label" >Helper Information</Typography>
             </Grid>
             {/* //end of upper form */}
             <form style={parentBox} onSubmit={handleSubmit}>
                 <Grid container spacing={3} alignItems="center" p={2}>
                     <Grid item xs={12}>
-                        <Typography variant='subtitle1' component='label' htmlFor='raddress'sx={labelStyle} >
-                            Address
+                      {/* username */}
+                        <Typography variant='subtitle1' component='label' htmlFor='username'sx={labelStyle} >
+                          Username
                         </Typography>
-                        <TextField  value={address}  onChange={(e) => {setName(e.target.value);}} required fullWidth id="raddress" sx={labelStyle} variant="outlined"></TextField>
+                        <TextField value={""} onChange={(e) => {setUsername(e.target.value);}} required fullWidth id="username" sx={labelStyle} variant="outlined"></TextField>
                     </Grid>
                     
                     <Grid item xs={12}>
-                        <Typography variant='subtitle1' component='label' htmlFor='rspace' >
-                            Space
+                        <Typography variant='subtitle1' component='label' htmlFor='password'sx={labelStyle} >
+                          Password
                         </Typography>
-                        <TextField value={space} onChange={(e) => {setPwd(e.target.value);}} required fullWidth id="rspace" variant="outlined"></TextField>
+                        <TextField value={""} onChange={(e) => {setPassword(e.target.value);}} required fullWidth id="password" sx={labelStyle} variant="outlined"></TextField>
                     </Grid>
 
                     <Grid item xs={12}>
                         <Typography variant='subtitle1' component='label' htmlFor='rcontact' sx={labelStyle}>
                             Contact
                         </Typography>
-                        <TextField value={contact} onChange={(e) => {setPwd(e.target.value);}} required fullWidth id="rcontact" variant="outlined"></TextField>
+                        <TextField value={""} onChange={(e) => {setContact(e.target.value);}} required fullWidth id="rcontact" variant="outlined"></TextField>
                     </Grid>
                     
                     <Grid item xs={6} md={6}>
                         <Button size="small" variant="contained" >
                             <Typography  className='btn' variant="subtitle2" component="label">
-                                Submit
+                                Update
+                            </Typography>                
+                        </Button>
+                    </Grid>
+                    <Grid item xs={6} md={6}>
+                        <Button size="small" variant="contained">
+                            <Typography  className='btn' variant="subtitle2" component="label">
+                                Delete Account
                             </Typography>                
                         </Button>
                     </Grid>
