@@ -3,6 +3,7 @@ import { TextField, Grid, Button, InputAdornment, Card, CardMedia } from '@mui/m
 import introImage from '../assets/intro.jpeg';
 import { useMutation } from 'react-query';
 import Axios from '../utils/Axios.js';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar.jsx';
 import Footer from '../Components/Footer.jsx';
 
@@ -12,7 +13,7 @@ export default function App() {
   const [ph_number, setPhNumber] = useState('');
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
-
+  const navigate = useNavigate();
   const askForLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -66,6 +67,7 @@ export default function App() {
       const info = {space,address, ph_number, latitude, longitude};
     //check with db
       mutate();
+      navigate('/homeShow');
     }
   }
   return (
