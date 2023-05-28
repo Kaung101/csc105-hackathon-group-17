@@ -3,9 +3,11 @@ import React, { useState, useContext } from 'react';
 import { useMutation } from 'react-query';
 import Axios from '../utils/Axios.js';
 import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 function LoginHelper() {
     
 //check for username, pwd, email and phno
+const navigate = useNavigate();
   const [username, setName] = useState('');
   const [pwd, setPwd] = useState(''); //Handle submit
   const [openDialog, setOpenDialog] = useState(false);
@@ -13,7 +15,7 @@ function LoginHelper() {
   //set user Type
   const [cookies, setCookies] = useCookies(['userName'] ); 
   setCookies('userType', username);
-    
+
   const { data, error, mutate } = useMutation(() => {
     Axios.post('/login', {
       username,
@@ -29,6 +31,8 @@ function LoginHelper() {
     // const info = {username, pwd};
     //check with db
       mutate();
+      navigate('/helperInfo');
+
         }
   }
 

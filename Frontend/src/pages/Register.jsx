@@ -3,7 +3,9 @@ import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
 import { useMutation } from 'react-query';
 import Axios from '../utils/Axios.js';
+import { useNavigate } from 'react-router-dom';
 export default function Register() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -41,6 +43,7 @@ export default function Register() {
   const handleRegister = (e) => {
     e.preventDefault();
     mutate();
+    navigate('/login');
   };
 
   return (
