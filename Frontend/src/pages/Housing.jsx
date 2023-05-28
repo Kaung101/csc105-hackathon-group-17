@@ -1,19 +1,12 @@
 import {
-  Avatar,
   Box,
   Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   Grid,
   TextField,
   Typography,
 } from '@mui/material';
-import React, { useState, useContext, useEffect } from 'react';
+import { useState } from 'react';
 import '../style/Housing.css';
-import { useCookies } from 'react-cookie';
 import { useMutation, useQuery } from 'react-query';
 import { Axios } from 'axios';
 export default function Login() {

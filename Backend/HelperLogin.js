@@ -4,7 +4,7 @@ var jwt = require("jsonwebtoken");
 
 module.exports = (req, res) => {
 	const username = req.body.username;
-	const password = req.body.password;
+	const password = req.body.pwd;
 
 	var sql = mysql.format("SELECT * FROM Helper WHERE name = ?", [username]);
 	console.log("DEBUG: /basic/login => " + sql);
@@ -24,7 +24,7 @@ module.exports = (req, res) => {
 				message: "Username not found in the system",
 			});
 		} else {
-			const valid = bcrypt.compare(password, Helper[0].hash_password);
+			const valid = bcrypt.compare(password, Helper[0].password);
 
 			if (valid) {
 				const token = jwt.sign(

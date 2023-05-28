@@ -2,21 +2,32 @@ import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogConten
 import React, { useState, useContext } from 'react';
 import { useMutation } from 'react-query';
 import Axios from '../utils/Axios.js';
+<<<<<<< HEAD
+import Navbar from '../Components/Navbar.jsx';
+import Footer from '../Components/Footer.jsx';
 
+=======
+import { useCookies } from 'react-cookie';
+>>>>>>> 1f992823cd88f06fe5f02fd41cc2bcc4bd734d9e
 function LoginHelper() {
+    
 //check for username, pwd, email and phno
   const [username, setName] = useState('');
   const [pwd, setPwd] = useState(''); //Handle submit
   const [openDialog, setOpenDialog] = useState(false);
 
+  //set user Type
+  const [cookies, setCookies] = useCookies(['userName'] ); 
+  setCookies('userType', username);
+    
   const { data, error, mutate } = useMutation(() => {
-    Axios.post('login', {
+    Axios.post('/login', {
       username,
       pwd,
     });
   });
-
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if(username == "" || pwd == "" ){
       setOpenDialog(true);
@@ -24,7 +35,7 @@ function LoginHelper() {
     // const info = {username, pwd};
     //check with db
       mutate();
-    }
+        }
   }
 
   //handleDialog
@@ -55,6 +66,9 @@ const parentBox = {
   borderRadius:'5px',
 }
   return (
+    <>
+    <Navbar />
+
     <Box className="login-container" 
     sx={{ marginLeft:40}}
     >
@@ -92,7 +106,7 @@ const parentBox = {
                     <Grid item xs={6} md={6} style={buttonRegisterStyle}>
                         <Button onClick={handleSubmit} size="small" variant="contained" style={buttonRegisterStyle}  >
                             <Typography style={buttonCancelStyle} className='btn' variant="subtitle2" component="label" >
-                                Register
+                                Login
                             </Typography>
                         </Button>
                     </Grid>
@@ -120,7 +134,10 @@ const parentBox = {
         </Dialog>
     </Grid>
     </Box>
-  )
+
+    <Footer />
+    </>
+  );
 }
 
-export default LoginHelper
+export default LoginHelper;

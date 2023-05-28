@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import Categories from './pages/Categories';
 import Seeker from './pages/Seeker';
-import Register from './pages/Register';
+import Register from './pages/Register.jsx';
 import LoginHelper from './pages/LoginHelper.jsx';
 import './index.css';
 import MainContent from './Components/MainContent.jsx';
@@ -15,7 +15,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <MainContent />,
   },
   {
     path: 'categories',
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'register',
-    element: <Register />,
+    element: <RegisterHelper />,
   },
   {
     path: 'login',
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
     element: <HelperInfo />,
   },
   {
-    path: 'helperDataInfo',
+    path: '/helperDataInfo',
     element: <Housing />,
   },
   {
