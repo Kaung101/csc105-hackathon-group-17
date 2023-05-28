@@ -11,10 +11,10 @@ import { useMutation, useQuery } from 'react-query';
 import { Axios } from 'axios';
 export default function Login() {
   const [profile, setProfile] = useState({
-    username: 'johndoe',
-    email: 'johndoe@johndoe.com',
-    ph_number: '1234567890',
-    address: '1234 Main St',
+    username: '',
+    email: '',
+    ph_number: '',
+    address: '',
   });
   const [email, setEmail] = useState('');
   const [phNo, setPhNo] = useState('');
