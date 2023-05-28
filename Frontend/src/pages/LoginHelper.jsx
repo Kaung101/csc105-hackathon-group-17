@@ -2,6 +2,9 @@ import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogConten
 import React, { useState, useContext } from 'react';
 import { useMutation } from 'react-query';
 import Axios from '../utils/Axios.js';
+import Navbar from '../Components/Navbar.jsx';
+import Footer from '../Components/Footer.jsx';
+
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 function LoginHelper() {
@@ -64,6 +67,9 @@ const parentBox = {
   borderRadius:'5px',
 }
   return (
+    <>
+    <Navbar />
+
     <Box className="login-container" 
     sx={{ marginLeft:40}}
     >
@@ -129,7 +135,10 @@ const parentBox = {
         </Dialog>
     </Grid>
     </Box>
-  )
+
+    <Footer />
+    </>
+  );
 }
 
-export default LoginHelper
+export default LoginHelper;

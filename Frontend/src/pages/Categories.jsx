@@ -3,6 +3,7 @@ import '../style/Categories.css'
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import Navbar from '../Components/Navbar';
+
 const itemList = [
   { id: 1, name: 'House', imageUrl: 'house.jpg' },
   { id: 2, name: 'Medicine', imageUrl: 'medicine.jpg' },
@@ -16,6 +17,9 @@ export default function Categories() {
     navigate('/homeShow')
   };
   return (
+    <>
+    <Navbar />
+    
     <div style={{ overflowX: 'hidden' }}>
       <Navbar/>
       <Grid container spacing={2} alignItems="center" justifyContent="center" margin="10px">
@@ -54,5 +58,6 @@ export default function Categories() {
         </Grid>
       </Grid>
     </div>
+    </>
   );
 }

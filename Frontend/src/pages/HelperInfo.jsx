@@ -4,6 +4,9 @@ import introImage from '../assets/intro.jpeg';
 import { useMutation } from 'react-query';
 import Axios from '../utils/Axios.js';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../Components/Navbar.jsx';
+import Footer from '../Components/Footer.jsx';
+
 export default function App() {
   const [address, setAddress] = useState('');
   const [space, setSpace] = useState('');
@@ -68,6 +71,8 @@ export default function App() {
     }
   }
   return (
+    <>
+    <Navbar />
     <form
       style={{
         position: 'relative',
@@ -140,5 +145,8 @@ export default function App() {
         </Grid>
       </div>
     </form>
+
+    <Footer />
+    </>
   );
 }
