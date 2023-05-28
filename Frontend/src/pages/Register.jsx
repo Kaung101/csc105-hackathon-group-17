@@ -1,8 +1,13 @@
 import Typography from '@mui/material/Typography';
-import { Button, TextField } from '@mui/material';
+import { Button, Box, TextField } from '@mui/material';
 import { useState } from 'react';
 import { useMutation } from 'react-query';
 import Axios from '../utils/Axios.js';
+import '../style/Register.css';
+import introImage from '../assets/intro.jpeg';
+import Navbar from '../Components/Navbar.jsx';
+import Footer from '../Components/Footer.jsx';
+
 export default function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -12,20 +17,14 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleUsernameChange = (e) => setUsername(e.currentTarget.value);
-
   const handleEmailChange = (e) => setEmail(e.currentTarget.value);
-
   const handlePhoneNumberChange = (e) => setPhoneNumber(e.currentTarget.value);
-
   const handleAddressChange = (e) => setAddress(e.currentTarget.value);
-
   const handlePasswordChange = (e) => setPassword(e.currentTarget.value);
-
-  const handleConfirmPasswordChange = (e) =>
-    setConfirmPassword(e.currentTarget.value);
+  const handleConfirmPasswordChange = (e) => setConfirmPassword(e.currentTarget.value);
 
   const isValid = () => {
-    return password == confirmPassword;
+    return password === confirmPassword;
   };
 
   const { data, error, mutate } = useMutation(() => {
@@ -45,63 +44,55 @@ export default function Register() {
 
   return (
     <>
-      <Typography variant="h3">Register</Typography>
-      <div>
+    <Navbar />
+    <Box
+      className="container"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      sx={{
+        backgroundImage: `url(${introImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+        padding: '40px',
+        boxSizing: 'border-box',
+      }}
+    >
+      <Box
+        className="form-container"
+        bgcolor="rgba(255, 255, 255, 0.8)" // White transparent background
+        borderRadius="10px"
+        p={4}
+        width="100%"
+        maxWidth="400px"
+        sx={{
+          display: 'grid',
+          gridGap: '20px',
+        }}
+      >
+        <Typography variant="h3" textAlign="center" gutterBottom>
+          Register
+        </Typography>
+        <TextField variant="filled" label="Username" onChange={handleUsernameChange} />
+        <TextField variant="filled" type="email" label="Email" onChange={handleEmailChange} />
+        <TextField variant="filled" label="Phone Number" onChange={handlePhoneNumberChange} />
+        <TextField variant="filled" label="Address" onChange={handleAddressChange} />
+        <TextField variant="filled" type="password" label="Password" onChange={handlePasswordChange} />
         <TextField
-          varient="filled"
-          label="username"
-          sx={{ m: 1 }}
-          onChange={handleUsernameChange}
-        />
-      </div>
-      <div>
-        <TextField
-          type="email"
-          varient="filled"
-          label="email"
-          sx={{ m: 1 }}
-          onChange={handleEmailChange}
-        />
-      </div>
-      <div>
-        <TextField
-          varient="filled"
-          label="phone number"
-          sx={{ m: 1 }}
-          onChange={handlePhoneNumberChange}
-        />
-      </div>
-      <div>
-        <TextField
-          varient="filled"
-          label="address"
-          sx={{ m: 1 }}
-          onChange={handleAddressChange}
-        />
-      </div>
-      <div>
-        <TextField
-          varient="filled"
-          label="password"
+          variant="filled"
           type="password"
-          sx={{ m: 1 }}
-          onChange={handlePasswordChange}
-        />
-      </div>
-      <div>
-        <TextField
-          varient="filled"
-          label="confirm password"
-          type="password"
-          sx={{ m: 1 }}
+          label="Confirm Password"
           onChange={handleConfirmPasswordChange}
         />
-      </div>
-      <div>
-        <Button variant="outlined" sx={{ m: 1 }} onClick={handleRegister}>
+        <Button variant="outlined" onClick={handleRegister}>
           Register
         </Button>
-      </div>
+      </Box>
+    </Box>
+
+    <Footer />
     </>
   );
 }

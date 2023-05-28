@@ -2,6 +2,8 @@ import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle } from '
 import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer.jsx';
 
 function Seeker() {
     const [cookies] = useCookies(['userType']); // Retrieve cookies
@@ -48,6 +50,10 @@ function Seeker() {
       };
   
   return (
+
+    <>
+    <Navbar />
+
     <Box>{/* Error Dialog */}
         <Dialog open={errorDialogOpen} onClose={handleCloseErrorDialog}>
           <DialogTitle>Error</DialogTitle>
@@ -63,7 +69,10 @@ function Seeker() {
         </Dialog>
 
     </Box>
-  )
+    
+    <Footer />
+    </>
+  );
 }
 
 export default Seeker

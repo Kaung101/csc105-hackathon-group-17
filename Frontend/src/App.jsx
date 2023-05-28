@@ -8,16 +8,18 @@ import Navbar from './Components/Navbar';
 import Categories from './Pages/Categories';
 import Footer from './Components/Footer';
 import HelperInfo from './pages/HelperInfo';
+import Register from './pages/Register';
 
 function App() {
   return (
     <>
-    {/* <Navbar /> */}
-    {/* <Categories /> */}
-    {/* <Footer />  */}
-    {/* <RegisterHelper /> */}
-    {/* <HelperInfo /> */}
-    <Housing />
+     {/* <Navbar /> 
+    <Categories /> 
+    <Footer />   */}
+    <RegisterHelper /> 
+    {/* <HelperInfo /> 
+    <Housing /> */}
+     {/* <Register />  */}
 
     </>
 

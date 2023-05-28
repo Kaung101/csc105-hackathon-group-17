@@ -2,6 +2,9 @@ import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogConten
 import React, { useState, useContext } from 'react';
 import '../style/Housing.css';
 import { useCookies } from 'react-cookie';
+import Navbar from '../Components/Navbar.jsx';
+import Footer from '../Components/Footer.jsx';
+
 export default function Login() {
   //when the user log in it will keep cookies
     const userId = "userId from cookies in login page";
@@ -34,6 +37,8 @@ export default function Login() {
   }
 
   return (
+    <>
+    <Navbar />
     <Box className="housing-container" 
     sx={{ marginLeft:40}}
     >
@@ -107,5 +112,8 @@ export default function Login() {
         </Dialog> */}
     </Grid>
     </Box>
+
+    <Footer />
+    </>
   )
 }
