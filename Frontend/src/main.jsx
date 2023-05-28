@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
 import Categories from './pages/Categories';
+import Register from './pages/Register';
 
 import './index.css';
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: 'categories',
     element: <Categories />,
+  },
+  {
+    path: 'register',
+    element: <Register />,
   },
 ]);
 
