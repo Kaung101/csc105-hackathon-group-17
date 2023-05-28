@@ -126,9 +126,9 @@ const dialogBtn = {
     color:'#BE1D1B',
   }
   return (
-    <Box className="register-container" >
+    <Box className="register--container" >
         {/* //outer Grid */}
-    <Grid  
+    <Grid className='grid-background'  
       container
       spacing={1}
       justifyContent="center"
