@@ -13,14 +13,12 @@ import LoginHelper from './pages/LoginHelper';
 function App() {
   return (
     <>
-    {/* <Categories />
-     <Navbar /> 
-     
-    <Footer />  
-    // <LoginHelper /> 
-    <HelperInfo /> 
-    <Housing /> 
-      */}
+    <Navbar />
+    <Categories />
+    <Footer /> 
+    <RegisterHelper />
+    <HelperInfo />
+    <Housing />
       <Register />
 
     </>

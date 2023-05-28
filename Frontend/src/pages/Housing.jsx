@@ -47,8 +47,8 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     mutate();
+    console.log("Profile Updated");
   };
 
   const handleDelete = (e) => {
@@ -121,7 +121,7 @@ export default function Login() {
                   id="username"
                   sx={labelStyle}
                   variant="outlined"
-                  disabled={true}
+
                 />
               </Grid>
 
