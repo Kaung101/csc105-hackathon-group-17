@@ -23,7 +23,7 @@ function Seeker() {
           console.log('Geolocation is not supported by your browser.');
         }
       };
-      
+
       const handleLocationSuccess = (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
