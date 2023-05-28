@@ -1,15 +1,20 @@
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 function Seeker() {
     const [cookies] = useCookies(['userType']); // Retrieve cookies
     const [errorDialogOpen, setErrorDialogOpen] = useState(false);
     console.log(cookies.userType);
-    
+    const navigate = useNavigate();
     useEffect(() => {
         if (cookies.userType === 'seeker') {
-          askForLocation();
+            //navigate to categories
+            askForLocation();
+
+            navigate('categories')
+
         }
       }, [cookies.userType]);
 

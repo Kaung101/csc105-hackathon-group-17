@@ -9,6 +9,7 @@ import RegisterHelper from './pages/RegisterHelper.jsx';
 import MainContent from './Components/MainContent.jsx';
 import HelperInfo from './pages/HelperInfo.jsx';
 import Housing from './pages/Housing.jsx';
+import HomeShow from './pages/HomeShow.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: 'helperDataInfo',
     element: <Housing />,
+  },
+  {
+    path: 'homeShow',
+    element: <HomeShow />,
   },
 ]);
 

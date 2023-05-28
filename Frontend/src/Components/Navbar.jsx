@@ -8,8 +8,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
-
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    //direct to other page
+    navigate('')
+  }
   return (
     <AppBar position="static" style={{ backgroundImage: 'url(/footbg.jpg)', backgroundSize: 'cover' }}>
       <Container maxWidth="xl">
@@ -72,7 +77,7 @@ const Navbar = () => {
           </Typography>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip onClick={handleClick}>
               <Avatar alt="UserProfile" src="/static/images/avatar/2.jpg" />
             </Tooltip>
           </Box>
