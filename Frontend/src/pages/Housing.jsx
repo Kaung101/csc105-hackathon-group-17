@@ -60,7 +60,7 @@ export default function Login() {
   useQuery(
     'user',
     () => {
-      Axios.get(`/profile`);
+      Axios.get('profile');
     },
     {
       onSuccess: (data) => {
