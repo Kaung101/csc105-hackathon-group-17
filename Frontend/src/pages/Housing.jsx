@@ -36,7 +36,7 @@ export default function Login() {
   const { data, error, mutate } = useMutation(() => {
     Axios.patch('/profile', {
       email,
-      phone_number,
+      phone_number: phNo,
       address,
     });
   });
