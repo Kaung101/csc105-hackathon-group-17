@@ -11,6 +11,7 @@ import MainContent from './Components/MainContent.jsx';
 import HelperInfo from './pages/HelperInfo.jsx';
 import Housing from './pages/Housing.jsx';
 import HomeShow from './pages/HomeShow.jsx';
+import { QueryClient, QueryClientProvider } from 'react-query';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -42,8 +43,12 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>,
 );

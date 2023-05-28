@@ -1,6 +1,8 @@
 import Typography from '@mui/material/Typography';
 import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
+import { useMutation } from 'react-query';
+import Axios from '../utils/Axios.js';
 export default function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -26,8 +28,19 @@ export default function Register() {
     return password == confirmPassword;
   };
 
+  const { data, error, mutate } = useMutation(() => {
+    Axios.post('register', {
+      username,
+      email,
+      ph_number: phoneNumber,
+      address,
+      password,
+    });
+  });
+
   const handleRegister = (e) => {
     e.preventDefault();
+    mutate();
   };
 
   return (
