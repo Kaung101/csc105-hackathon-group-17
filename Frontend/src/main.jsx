@@ -12,7 +12,6 @@ import HelperInfo from './pages/HelperInfo.jsx';
 import Housing from './pages/Housing.jsx';
 import HomeShow from './pages/HomeShow.jsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import RegisterHelper from './pages/RegisterHelper.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -45,7 +44,11 @@ const router = createBrowserRouter([
   {
     path: 'homeShow',
     element: <HomeShow />,
-  }
+  },
+  {
+    path: 'login',
+    element: <LoginHelper />,
+  },
 ]);
 
 const queryClient = new QueryClient();

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { TextField, Grid, Button, InputAdornment, Card, CardMedia } from '@mui/material';
 import introImage from '../assets/intro.jpeg';
+import { useMutation } from 'react-query';
+import Axios from '../utils/Axios.js';
 export default function App() {
   const [address, setAddress] = useState('');
   const [space, setSpace] = useState('');
-  const [ph_number, setPhNumber] = useState(''); 
+  const [ph_number, setPhNumber] = useState('');
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
+
   const askForLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -24,6 +29,8 @@ export default function App() {
     console.log('Longitude:', longitude);
 
     // Do something with the location coordinates, e.g., send them to the server
+    setLongitude(longitude);
+    setLatitude(latitude);
   };
 
   const handleLocationError = (error) => {
@@ -37,6 +44,17 @@ export default function App() {
     askForLocation();
 
   };
+
+  const { data, error, mutate } = useMutation(() => {
+    Axios.post('createHome', {
+      space,
+      address,
+      ph_number,
+      latitude,
+      longitude,
+    });
+  });
+
   //submit
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,6 +62,7 @@ export default function App() {
     }else{
       const info = {space,address, ph_number, latitude, longitude};
     //check with db
+      mutate();
     }
   }
   return (
