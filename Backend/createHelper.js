@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 module.exports = async (req, res) => {
 	const username = req.body.username;
     const email = req.body.email;
-    const ph_number = req.body.ph_number;
+    const ph_number = req.body.phoneNumber;
     const address = req.body.address;
 	const password = req.body.password;
 	const salt1 = await bcrypt.genSalt(10);

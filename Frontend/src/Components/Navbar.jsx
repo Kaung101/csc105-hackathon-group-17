@@ -20,7 +20,6 @@ const Navbar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-            <img src="./public/logo-no-background.png" alt="Logo" style={{ height: '30px' }} />
           </Box>
           <Typography
             variant="h6"

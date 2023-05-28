@@ -20,12 +20,12 @@ global.connection = connection;
 
 // Create express app
 const app = express();
-const port = 5000;
+const port = 8000;
 
 // Parse various different custom JSON types as JSON
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(cookieParser());
-app.use(cors({ origin: ["http://localhost:5173","http://localhost:5175"], credentials: true }));
+app.use(cors({ origin: ["http://localhost:5173","http://localhost:5174"], credentials: true }));
 
 // Register endpoints
 app.get("/login", require("./HelperLogin"));

@@ -5,17 +5,18 @@ import App from './App.jsx';
 import Categories from './pages/Categories';
 import Seeker from './pages/Seeker';
 import Register from './pages/Register';
-
+import LoginHelper from './pages/LoginHelper.jsx';
 import './index.css';
 import MainContent from './Components/MainContent.jsx';
 import HelperInfo from './pages/HelperInfo.jsx';
 import Housing from './pages/Housing.jsx';
 import HomeShow from './pages/HomeShow.jsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import LoginHelper from './pages/LoginHelper.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainContent />,
+    element: <App />,
   },
   {
     path: 'categories',
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: 'register',
     element: <Register />,
+  },
+  {
+    path: 'login',
+    element: <LoginHelper />,
   },
   {
     path: 'seeker',

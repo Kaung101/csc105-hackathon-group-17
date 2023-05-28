@@ -29,10 +29,10 @@ export default function Register() {
   };
 
   const { data, error, mutate } = useMutation(() => {
-    Axios.post('register', {
+    Axios.post('/register', {
       username,
       email,
-      ph_number: phoneNumber,
+      phoneNumber,
       address,
       password,
     });
