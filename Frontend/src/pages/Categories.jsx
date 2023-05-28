@@ -25,7 +25,7 @@ export default function Categories() {
           </div>
         </Grid>
         {/* on click */}
-        <Grid className="cards" item container spacing={2} justifyContent="center" onClick={handleClick}>
+        <Grid className="cards" item container spacing={2} justifyContent="center" onClick={(navigate('/helperDataInfo'))}>
           {itemList.map((item, index) => (
             <Grid item xs={12} sm={6} md={6} lg={6} key={item.id}>
               <Card sx={{ border: '1px solid lightgray', borderRadius: '8px', display: 'flex', flexDirection: 'column', height: '100%' }}>

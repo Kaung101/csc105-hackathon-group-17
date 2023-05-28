@@ -2,6 +2,7 @@ import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogConten
 import React, { useState, useContext } from 'react';
 import '../style/Housing.css';
 import { useCookies } from 'react-cookie';
+import Axios from '../utils/Axios.js';
 export default function Login() {
   //when the user log in it will keep cookies
     const userId = "userId from cookies in login page";

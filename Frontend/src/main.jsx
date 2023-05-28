@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import Categories from './pages/Categories';
 import Seeker from './pages/Seeker';
-import Register from './pages/Register';
+import RegisterHelper from './pages/RegisterHelper.jsx';
 import LoginHelper from './pages/LoginHelper.jsx';
 import './index.css';
 import MainContent from './Components/MainContent.jsx';
@@ -12,11 +12,11 @@ import HelperInfo from './pages/HelperInfo.jsx';
 import Housing from './pages/Housing.jsx';
 import HomeShow from './pages/HomeShow.jsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import LoginHelper from './pages/LoginHelper.jsx';
+import RegisterHelper from './pages/RegisterHelper.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <MainContent />,
   },
   {
     path: 'categories',
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'register',
-    element: <Register />,
+    element: <RegisterHelper />,
   },
   {
     path: 'login',
@@ -39,17 +39,13 @@ const router = createBrowserRouter([
     element: <HelperInfo />,
   },
   {
-    path: 'helperDataInfo',
+    path: '/helperDataInfo',
     element: <Housing />,
   },
   {
     path: 'homeShow',
     element: <HomeShow />,
-  },
-  {
-    path: 'login',
-    element: <Login />,
-  },
+  }
 ]);
 
 const queryClient = new QueryClient();
