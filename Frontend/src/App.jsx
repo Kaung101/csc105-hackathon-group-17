@@ -12,11 +12,11 @@ import HelperInfo from './pages/HelperInfo';
 function App() {
   return (
     <>
-    {/* <Navbar /> */}
-    {/* <Categories /> */}
-    {/* <Footer />  */}
-    {/* <RegisterHelper /> */}
-    {/* <HelperInfo /> */}
+    <Navbar />
+    <Categories />
+    <Footer /> 
+    <RegisterHelper />
+    <HelperInfo />
     <Housing />
 
     </>
